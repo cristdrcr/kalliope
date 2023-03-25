@@ -54,5 +54,5 @@ USER kalliope
 # RUN git clone https://github.com/kalliope-project/kalliope.git kalliope && cd kalliope && sudo python3 setup.py install
 # Copy local path
 COPY . /home/kalliope
-# RUN sudo pip3 install --upgrade --force-reinstall setuptools
+RUN sudo pip3 install urllib3==1.21.1
 RUN sudo python3 setup.py install
