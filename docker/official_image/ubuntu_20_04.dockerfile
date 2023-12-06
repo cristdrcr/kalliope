@@ -54,5 +54,26 @@ USER kalliope
 # RUN git clone https://github.com/kalliope-project/kalliope.git kalliope && cd kalliope && sudo python3 setup.py install
 # Copy local path
 COPY . /home/kalliope
-RUN sudo pip3 install urllib3==1.21.1
+# RUN sudo pip3 uninstall urllib3
+# RUN sudo pip3 install urllib3==1.21.1
+# RUN sudo python3 setup.py install
+
+RUN sudo ln -s /usr/bin/python3 /usr/bin/python
+
+RUN git clone https://github.com/ytdl-org/youtube-dl \
+    && cd youtube-dl \
+    && sudo python3 setup.py build \
+    && sudo python3 setup.py install
+
 RUN sudo python3 setup.py install
+
+# # RUN apt install git 
+# RUN git clone https://github.com/ytdl-org/youtube-dl \
+#     && cd youtube-dl \
+#     && sudo python3 setup.py build \
+#     && sudo python3 setup.py install
+
+# RUN git clone https://github.com/ytdl-org/youtube-dl
+# RUN cd youtube-dl
+# RUN sudo python3 setup.py build
+# RUN sudo python3 setup.py install
